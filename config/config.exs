@@ -2,11 +2,11 @@ import Config
 
 config :phoenix, :json_library, Jason
 
-config :chat_pwa, ChatPwa.Endpoint,
+config :chat_pwa, ChatPwaWeb.Endpoint,
   url: [host: "localhost"],
-  pubsub_server: ChatPwa.PubSub,
+  pubsub_server: ChatPwaWeb.PubSub,
   render_errors: [
-    formats: [html: ChatPwa.ErrorHTML],
+    formats: [html: ChatPwaWeb.ErrorHTML],
     layout: false
   ]
 

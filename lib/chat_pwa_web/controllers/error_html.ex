@@ -1,5 +1,5 @@
-defmodule ChatPwa.ErrorHTML do
-  use ChatPwa, :html
+defmodule ChatPwaWeb.ErrorHTML do
+  use ChatPwaWeb, :html
 
   embed_templates("error_html/*")
 

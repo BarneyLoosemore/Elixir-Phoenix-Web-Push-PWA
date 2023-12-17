@@ -1,5 +1,5 @@
-defmodule ChatPwa.HomeController do
-  use Phoenix.Controller, namespace: ChatPwa
+defmodule ChatPwaWeb.HomeController do
+  use Phoenix.Controller, namespace: ChatPwaWeb
 
   def index(conn, _opts) do
     IO.puts("hello world")

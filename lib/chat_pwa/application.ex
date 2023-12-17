@@ -3,8 +3,13 @@ defmodule ChatPwa.Application do
 
   @impl true
   def start(:normal, []) do
+    children = [
+      ChatPwaWeb.Endpoint,
+      {Phoenix.PubSub, name: ChatPwaWeb.PubSub}
+    ]
+
     Supervisor.start_link(
-      [ChatPwa.Endpoint, {Phoenix.PubSub, name: ChatPwa.PubSub}],
+      children,
       strategy: :one_for_one,
       name: ChatPwa.Supervisor
     )

@@ -1,5 +1,5 @@
-defmodule ChatPwa.Router do
-  use ChatPwa, :router
+defmodule ChatPwaWeb.Router do
+  use ChatPwaWeb, :router
 
-  get("/", ChatPwa.HomeController, :index)
+  get "/", ChatPwaWeb.HomeController, :index
 end
