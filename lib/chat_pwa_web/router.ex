@@ -1,5 +1,5 @@
 defmodule ChatPwa.Router do
-  use Phoenix.Router
+  use ChatPwa, :router
 
   get("/", ChatPwa.HomeController, :index)
 end
