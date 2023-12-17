@@ -1,6 +1,6 @@
 import Config
 
-config :phoenix, :json_library, Jason
+config :chat_pwa, ecto_repos: [ChatPwa.Repo]
 
 config :chat_pwa, ChatPwaWeb.Endpoint,
   url: [host: "localhost"],
@@ -18,5 +18,7 @@ config :esbuild,
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
+
+config :phoenix, :json_library, Jason
 
 import_config "#{Mix.env()}.exs"

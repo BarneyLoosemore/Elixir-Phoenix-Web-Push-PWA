@@ -22,6 +22,9 @@ defmodule ChatPwa.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7.6"},
+      {:phoenix_ecto, "~> 4.4"},
+      {:ecto_sql, "~> 3.10"},
+      {:postgrex, ">= 0.0.0"},
       {:phoenix_live_view, "~> 0.19.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_html, "~> 3.3"},
@@ -37,9 +40,9 @@ defmodule ChatPwa.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.setup": ["esbuild.install --if-missing"],
+      "assets.build": ["esbuild default"],
+      "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end

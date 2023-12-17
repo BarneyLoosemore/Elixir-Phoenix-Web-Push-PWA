@@ -4,8 +4,9 @@ defmodule ChatPwa.Application do
   @impl true
   def start(:normal, []) do
     children = [
-      ChatPwaWeb.Endpoint,
-      {Phoenix.PubSub, name: ChatPwaWeb.PubSub}
+      ChatPwa.Repo,
+      {Phoenix.PubSub, name: ChatPwaWeb.PubSub},
+      ChatPwaWeb.Endpoint
     ]
 
     Supervisor.start_link(
