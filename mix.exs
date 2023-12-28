@@ -7,6 +7,7 @@ defmodule ChatPwa.MixProject do
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
+      elixirc_paths: elixirc_paths(Mix.env()),
       deps: deps(),
       aliases: aliases()
     ]
@@ -19,6 +20,9 @@ defmodule ChatPwa.MixProject do
     ]
   end
 
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_), do: ["lib"]
+
   defp deps do
     [
       {:phoenix, "~> 1.7.6"},
@@ -30,7 +34,9 @@ defmodule ChatPwa.MixProject do
       {:phoenix_html, "~> 3.3"},
       {:plug_cowboy, "~> 2.5"},
       {:jason, "~> 1.2"},
-      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev}
+      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
+      {:wallaby, "~> 0.30.6", [runtime: false, only: :test]},
+      {:ex_machina, "~> 2.7.0"}
     ]
   end
 

@@ -18,7 +18,6 @@ defmodule ChatPwaWeb do
         layouts: [html: ChatPwaWeb.Layouts]
 
       import Plug.Conn
-      import ChatPwaWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -38,6 +37,7 @@ defmodule ChatPwaWeb do
   defp html_helpers do
     quote do
       import Phoenix.HTML
+
       unquote(verified_routes())
     end
   end

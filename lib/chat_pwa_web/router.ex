@@ -1,5 +1,14 @@
 defmodule ChatPwaWeb.Router do
   use ChatPwaWeb, :router
 
-  get "/", ChatPwaWeb.HomeController, :index
+  pipeline :browser do
+    plug :accepts, ["html"]
+  end
+
+  scope "/", ChatPwaWeb do
+    pipe_through :browser
+
+    get "/", ChatRoomController, :index
+    resources "/chat_rooms", ChatRoomController, only: [:new]
+  end
 end

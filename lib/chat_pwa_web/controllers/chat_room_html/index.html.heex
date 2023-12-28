@@ -1,0 +1,7 @@
+<ul>
+  <%= for room <- @chat_rooms do %>
+    <li data-role="room"><%= room.name %></li>
+  <% end %>
+</ul>
+
+<.link href={~p"/chat_rooms/new"}>New chat room</.link>
